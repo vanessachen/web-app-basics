@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- base file -->
+<head>
+    {% block head %}
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+
+    {% endblock %}
+
+</head>
+
+<body>
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="{{url_for('quiz')}}" class="navbar-brand">Quiz App</a>
+            </div>
+            <div class="navbar-collapse collapse" id="navbar-main">
+              <ul class="nav navbar-nav">
+
+                <li><a href="{{url_for('testdata')}}">Raw Data</a></li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                {% if is_logged_in() %}
+                  {% if is_admin_visible() %}<li><a href="{{url_for('admin.index')}}">Admin</a></li> {% endif %}
+                  <li><a href="{{url_for('logout')}}">Log out</a></li>
+                {% else %}
+                  <li><a href="{{url_for('login')}}"><strong>Register</strong> or <strong>Log in</strong></a></li>
+                {% endif %}
+              </ul>
+              {% if is_logged_in() %}
+                <p class="navbar-text navbar-right">Signed in as <a href="">{{g.user.username}}</a></p>
+              {% endif %}
+            </div>
+        </div>
+    </div>
+
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+  <div class="alert alert-info">
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  </div>
+
+  {% endif %}
+{% endwith %}
+<br>
+<br>
+        <title>{% block title %}{% endblock %}</title>
+
+<br>
+<br>
+  <div id="content" class="container">
+    {% block content %}{% endblock %}
+  </div>
+
+  <div id="footer">
+        {% block footer %}
+        <br><br>
+<div align="center">
+        &copy; Copyright 2017</div>
+        {% endblock %}
+    </div>
+    
+</body>
+</html>

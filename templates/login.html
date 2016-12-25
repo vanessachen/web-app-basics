@@ -1,0 +1,67 @@
+{% extends "_base.html" %}
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+<div class="col-lg-6">
+    <h1>Register</h1>
+    <p>Don't have an account yet? Register here.</p>
+    {{ rform.errors }}
+
+    {# {{ error_box(rform) }} #}
+    <form method="post" action="{{ url_for('login') }}" class="bs_component">
+        {{ rform.csrf_token }}
+        <div class="form-group">
+            {{ rform.fname.label(class_="control-label") }}
+            {{ rform.fname(class_="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ rform.lname.label(class_="control-label") }}
+            {{ rform.lname(class_="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ rform.username.label(class_="control-label") }}
+            {{ rform.username(class_="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ rform.email.label(class_="control-label") }}
+            {{ rform.email(class_="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ rform.password.label(class_="control-label") }}
+            {{ rform.password(class_="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ rform.passrepeat.label(class_="control-label") }}
+            {{ rform.passrepeat(class_="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ rform.group.label(class_="control-label") }}
+            {{ rform.group(class_="form-control") }}
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary" name="submit" value="reg">Create account</button>
+        </div>
+    </form>
+</div>
+<div class="col-lg-6">
+    <h1>Log in</h1>
+    <p>Already have an account? Sign in here.</p>
+    {#  {{ error_box(lform) }} #}
+    <form method="post" action="{{ url_for('login') }}" class="bs_component">
+        {{ lform.csrf_token }}
+        <div class="form-group">
+            {{ lform.uname.label(class_="control-label") }}
+            {{ lform.uname(class_="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ lform.passphrase.label(class_="control-label") }}
+            {{ lform.passphrase(class_="form-control") }}
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary" name="submit" value="login">Log in</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
