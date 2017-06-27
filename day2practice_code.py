@@ -1,9 +1,9 @@
 '''
-	day2practice_code.py
-	Practice code for Day 2
+    day2practice_code.py
+    Practice code for Day 2
 
-	A program to deliver a text-based version
-	of the quiz app.
+    A program to deliver a text-based version
+    of the quiz app.
 '''
 
 
@@ -19,21 +19,21 @@ item_results = shelve.open("results.db")
 
 
 for item in items_to_learn.keys():
-	item_results[item] = []
+    item_results[item] = []
 
 for item in items_to_learn.keys():
-	definition = items_to_learn[item]
-	print("******")
-	print(definition)
+    definition = items_to_learn[item]
+    print("******")
+    print(definition)
 
-	# get input from the user and save it into 
-	# a variable called `guess` (which is always a STRING)
-	guess = input("type your guess >  ")
+    # get input from the user and save it into 
+    # a variable called `guess` (which is always a STRING)
+    guess = input("type your guess >  ")
 
 
-	# check whether the user answered correctly
+    # check whether the user answered correctly
 
-	# record the result into the item_results shelve
+    # record the result into the item_results shelve
 
 
 # loop over the items in item_results
