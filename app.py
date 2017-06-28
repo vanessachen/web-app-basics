@@ -3,13 +3,15 @@
 '''
    sample code to learn Flask
 
+   This code is designed to run in cloud9.
+
    From the terminal, run: 
 
         $ python app.py
 
-    and then, in a browser, go to:
+    and then start a preview
 
-        http://127.0.0.1:5000/progress
+        
 
    Debugging should be turned off for deployment but this code
    may be used for testing on a local machine.
@@ -23,6 +25,7 @@ from flask import (
 from functools import wraps
 import json
 import math, random
+import os
 
 # this is a hard-coded example for demo purposes
 APP_SECRET_KEY = "this is a secret" # change for production
@@ -70,4 +73,5 @@ if __name__ == "__main__":
     ''' next line: cause KeyErrors to bubble up to top level 
     so we can see the traceback & debugger '''
     app.config["TRAP_BAD_REQUEST_ERRORS"] = True
-    app.run()
+    # run on Port 8080 for Cloud9 deployment to work (c9.io)
+    app.run(host=os.getenv('IP', '0.0.0.0'),port=int(os.getenv('PORT', 8080)))
