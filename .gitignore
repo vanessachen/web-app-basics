@@ -15,5 +15,3 @@ secure.py~
 # from Python
 __pycache__/
 *.pyc
-
-templates/_base_old.html

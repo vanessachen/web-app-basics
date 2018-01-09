@@ -69,9 +69,8 @@ def progress():
 
 if __name__ == "__main__":
     app.config["PROPAGATE_EXCEPTIONS"] = True
-    app.config["DEBUG"] = True # TODO change for production
+    app.config["DEBUG"] = True 
     ''' next line: cause KeyErrors to bubble up to top level 
     so we can see the traceback & debugger '''
     app.config["TRAP_BAD_REQUEST_ERRORS"] = True
-    # run on Port 8080 for Cloud9 deployment to work (c9.io)
     app.run(host=os.getenv('IP', '0.0.0.0'),port=int(os.getenv('PORT', 8080)))
