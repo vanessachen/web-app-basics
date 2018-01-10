@@ -1,13 +1,20 @@
 # quizapp
-a Word Quiz flask app 
+a Word Quiz flask app
 
-##Notes for the Quiz App
+## Notes for the Quiz App
 
 The purpose of this app is to teach full stack web development.  quizapp is a Flask application (written in Python 3) which demonstrates the use of MongoDB with pymongo.  In order to run this code on your local machine, follow these steps:
 
 * clone the repo
+IF you don't have a Github account:
+enter `git clone https://github.com/stackmaps/web-app-basics.git` into Terminal
+If it errors, install all the software that pops up and try again
 
-git clone <>
+IF you have a Github account:
+Go to https://github.com/stackmaps/web-app-basics and click the upper right button that says Fork
+`git clone https://github.com/YOUR-USERNAME/web-app-basics.git` where you replace `YOUR-USERNAME` with your Github username
+`cd web-app-basics`
+`git remote add upstream https://github.com/stackmaps/web-app-basics.git`
 
 * set up a virtual environment
 
